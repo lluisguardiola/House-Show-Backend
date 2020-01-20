@@ -1,0 +1,112 @@
+  [1m[35m (349.4ms)[0m  [1m[35mCREATE DATABASE "HouseShowBackend_development" ENCODING = 'unicode'[0m
+  [1m[35m (90.4ms)[0m  [1m[35mCREATE DATABASE "HouseShowBackend_test" ENCODING = 'unicode'[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3962904145164313545)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateNeighborhoods (20200120052957)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "neighborhoods" ("id" bigserial primary key, "name" character varying, "city" character varying, "county" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200120052957"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePerformers (20200120053220)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "performers" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200120053220"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEvents (20200120053453)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "events" ("id" bigserial primary key, "neighborhood_id" bigint NOT NULL, "name" character varying, "address" character varying, "start_time" character varying, "intereted_count" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_8927415b17"
+FOREIGN KEY ("neighborhood_id")
+  REFERENCES "neighborhoods" ("id")
+)[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE  INDEX  "index_events_on_neighborhood_id" ON "events"  ("neighborhood_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200120053453"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateShows (20200120053621)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "shows" ("id" bigserial primary key, "event_id" bigint NOT NULL, "performer_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_4a869d23c8"
+FOREIGN KEY ("event_id")
+  REFERENCES "events" ("id")
+, CONSTRAINT "fk_rails_86bb541055"
+FOREIGN KEY ("performer_id")
+  REFERENCES "performers" ("id")
+)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_shows_on_event_id" ON "shows"  ("event_id")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_shows_on_performer_id" ON "shows"  ("performer_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200120053621"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-01-20 07:18:32.356985"], ["updated_at", "2020-01-20 07:18:32.356985"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3962904145164313545)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mNeighborhood Load (0.6ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Create (0.8ms)[0m  [1m[32mINSERT INTO "neighborhoods" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Lincoln Square"], ["created_at", "2020-01-20 07:21:17.828404"], ["updated_at", "2020-01-20 07:21:17.828404"]]
+  [1m[35m (7.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mNeighborhood Load (0.5ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mNeighborhood Load (0.5ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" ORDER BY "neighborhoods"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mNeighborhood Load (0.5ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" ORDER BY "neighborhoods"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mNeighborhood Load (0.4ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mNeighborhood Load (0.6ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" ORDER BY "neighborhoods"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Update (8.5ms)[0m  [1m[33mUPDATE "neighborhoods" SET "city" = $1, "county" = $2, "updated_at" = $3 WHERE "neighborhoods"."id" = $4[0m  [["city", "Chicago"], ["county", "Cook County"], ["updated_at", "2020-01-20 07:23:07.790019"], ["id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mNeighborhood Load (0.5ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Load (0.5ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" WHERE "neighborhoods"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Create (1.8ms)[0m  [1m[32mINSERT INTO "events" ("neighborhood_id", "name", "address", "start_time", "intereted_count", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["neighborhood_id", 1], ["name", "Lluis's house party"], ["address", "W Carmen ave"], ["start_time", "20:00"], ["intereted_count", 0], ["created_at", "2020-01-20 07:28:07.091882"], ["updated_at", "2020-01-20 07:28:07.091882"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mNeighborhood Load (0.2ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mNeighborhood Load (0.6ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" ORDER BY "neighborhoods"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."neighborhood_id" = $1 LIMIT $2[0m  [["neighborhood_id", 1], ["LIMIT", 11]]
+  [1m[36mShow Load (0.6ms)[0m  [1m[34mSELECT "shows".* FROM "shows" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mPerformer Load (0.8ms)[0m  [1m[34mSELECT "performers".* FROM "performers" ORDER BY "performers"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerformer Create (1.3ms)[0m  [1m[32mINSERT INTO "performers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Lluis"], ["created_at", "2020-01-20 07:29:54.999480"], ["updated_at", "2020-01-20 07:29:54.999480"]]
+  [1m[35m (7.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPerformer Load (0.6ms)[0m  [1m[34mSELECT "performers".* FROM "performers" ORDER BY "performers"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPerformer Load (0.6ms)[0m  [1m[34mSELECT "performers".* FROM "performers" ORDER BY "performers"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShow Load (0.4ms)[0m  [1m[34mSELECT "shows".* FROM "shows" WHERE "shows"."performer_id" = $1 LIMIT $2[0m  [["performer_id", 1], ["LIMIT", 11]]
+  [1m[36mPerformer Load (0.6ms)[0m  [1m[34mSELECT "performers".* FROM "performers" ORDER BY "performers"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPerformer Load (0.6ms)[0m  [1m[34mSELECT "performers".* FROM "performers" ORDER BY "performers"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShow Load (0.8ms)[0m  [1m[34mSELECT "shows".* FROM "shows" WHERE "shows"."performer_id" = $1 LIMIT $2[0m  [["performer_id", 1], ["LIMIT", 11]]
+  [1m[36mPerformer Load (0.6ms)[0m  [1m[34mSELECT "performers".* FROM "performers" ORDER BY "performers"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShow Load (0.7ms)[0m  [1m[34mSELECT "shows".* FROM "shows" WHERE "shows"."performer_id" = $1 LIMIT $2[0m  [["performer_id", 1], ["LIMIT", 11]]
+  [1m[36mPerformer Load (0.8ms)[0m  [1m[34mSELECT "performers".* FROM "performers" ORDER BY "performers"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShow Load (0.3ms)[0m  [1m[34mSELECT "shows".* FROM "shows" ORDER BY "shows"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.7ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShow Create (2.2ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 1], ["performer_id", 1], ["created_at", "2020-01-20 07:43:05.613906"], ["updated_at", "2020-01-20 07:43:05.613906"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPerformer Load (0.5ms)[0m  [1m[34mSELECT "performers".* FROM "performers" ORDER BY "performers"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPerformer Load (0.6ms)[0m  [1m[34mSELECT "performers".* FROM "performers" ORDER BY "performers"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShow Load (0.6ms)[0m  [1m[34mSELECT "shows".* FROM "shows" WHERE "shows"."performer_id" = $1 LIMIT $2[0m  [["performer_id", 1], ["LIMIT", 11]]
+  [1m[36mPerformer Load (0.5ms)[0m  [1m[34mSELECT "performers".* FROM "performers" ORDER BY "performers"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "shows" ON "events"."id" = "shows"."event_id" WHERE "shows"."performer_id" = $1 LIMIT $2[0m  [["performer_id", 1], ["LIMIT", 11]]
+  [1m[36mPerformer Load (0.7ms)[0m  [1m[34mSELECT "performers".* FROM "performers" ORDER BY "performers"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPerformer Load (0.4ms)[0m  [1m[34mSELECT "performers".* FROM "performers" ORDER BY "performers"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mNeighborhood Load (1.1ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" INNER JOIN "events" ON "neighborhoods"."id" = "events"."neighborhood_id" INNER JOIN "shows" ON "events"."id" = "shows"."event_id" WHERE "shows"."performer_id" = $1 LIMIT $2[0m  [["performer_id", 1], ["LIMIT", 11]]
+  [1m[36mNeighborhood Load (0.4ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" ORDER BY "neighborhoods"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mNeighborhood Load (0.7ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" ORDER BY "neighborhoods"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."neighborhood_id" = $1 LIMIT $2[0m  [["neighborhood_id", 1], ["LIMIT", 11]]
+  [1m[36mNeighborhood Load (0.7ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" ORDER BY "neighborhoods"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShow Load (0.8ms)[0m  [1m[34mSELECT "shows".* FROM "shows" INNER JOIN "events" ON "shows"."event_id" = "events"."id" WHERE "events"."neighborhood_id" = $1 LIMIT $2[0m  [["neighborhood_id", 1], ["LIMIT", 11]]
+  [1m[36mNeighborhood Load (0.7ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" ORDER BY "neighborhoods"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPerformer Load (0.7ms)[0m  [1m[34mSELECT "performers".* FROM "performers" INNER JOIN "shows" ON "performers"."id" = "shows"."performer_id" INNER JOIN "events" ON "shows"."event_id" = "events"."id" WHERE "events"."neighborhood_id" = $1 LIMIT $2[0m  [["neighborhood_id", 1], ["LIMIT", 11]]
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mNeighborhood Load (0.3ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" WHERE "neighborhoods"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mNeighborhood Load (0.6ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" WHERE "neighborhoods"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShow Load (0.4ms)[0m  [1m[34mSELECT "shows".* FROM "shows" WHERE "shows"."event_id" = $1 LIMIT $2[0m  [["event_id", 1], ["LIMIT", 11]]
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPerformer Load (0.5ms)[0m  [1m[34mSELECT "performers".* FROM "performers" INNER JOIN "shows" ON "performers"."id" = "shows"."performer_id" WHERE "shows"."event_id" = $1 LIMIT $2[0m  [["event_id", 1], ["LIMIT", 11]]
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPerformer Load (0.5ms)[0m  [1m[34mSELECT "performers".* FROM "performers" INNER JOIN "shows" ON "performers"."id" = "shows"."performer_id" WHERE "shows"."event_id" = $1 ORDER BY "performers"."id" ASC LIMIT $2[0m  [["event_id", 1], ["LIMIT", 1]]
