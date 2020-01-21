@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
 	def index
 		events = Event.all
-        render json: events, include: :neighborhood
+        render json: events, include: [:neighborhood, :shows]
 	end
 end
