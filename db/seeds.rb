@@ -1,7 +1,20 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+Neighborhood.destroy_all
+Event.destroy_all
+Performer.destroy_all
+Show.destroy_all
+
+neighborhood1 = Neighborhood.create(name: 'Lake View', city: 'Chicago', county: 'Cook County')
+5.times do
+    Event.create(neighborhood_id: neighborhood1, name: , address: Faker::Address.street_address, start_time:, intereted_count: )
+end
+
+neighborhood2 = Neighborhood.create(name: 'Lincoln Park', city: 'Chicago', county: 'Cook County')
+
+
+neighborhood3 = Neighborhood.create(name: 'Andersonville', city: 'Chicago', county: 'Cook County')
+
+
+neighborhood4 = Neighborhood.create(name: 'Logan Square', city: 'Chicago', county: 'Cook County')
+
