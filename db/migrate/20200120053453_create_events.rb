@@ -5,7 +5,7 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :address
       t.string :start_time
-      t.integer :intereted_count
+      t.integer :interested_count
 
       t.timestamps
     end

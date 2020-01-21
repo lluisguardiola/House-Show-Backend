@@ -11,7 +11,7 @@ neighborhood1 = Neighborhood.create(name: 'Lake View', city: 'Chicago', county: 
     name: Faker::TvShows::TwinPeaks.location + "'s House Show",
     address: Faker::Address.street_address,
     start_time: Faker::Time.between_dates(from: Date.today, to: Date.today + 14, period: :night, format: :short),
-    intereted_count: (0..20).to_a.sample
+    interested_count: (0..20).to_a.sample
     )
 end
 
@@ -21,7 +21,7 @@ neighborhood2 = Neighborhood.create(name: 'Lincoln Park', city: 'Chicago', count
     name: Faker::TvShows::TwinPeaks.location + "'s House Show",
     address: Faker::Address.street_address,
     start_time: Faker::Time.between_dates(from: Date.today, to: Date.today + 14, period: :night, format: :short),
-    intereted_count: (0..20).to_a.sample
+    interested_count: (0..20).to_a.sample
     )
 end
 
@@ -31,7 +31,7 @@ neighborhood3 = Neighborhood.create(name: 'Andersonville', city: 'Chicago', coun
     name: Faker::TvShows::TwinPeaks.location + "'s House Show",
     address: Faker::Address.street_address,
     start_time: Faker::Time.between_dates(from: Date.today, to: Date.today + 14, period: :night, format: :short),
-    intereted_count: (0..20).to_a.sample
+    interested_count: (0..20).to_a.sample
     )
 end
 
@@ -42,7 +42,7 @@ neighborhood4 = Neighborhood.create(name: 'Logan Square', city: 'Chicago', count
     name: Faker::TvShows::TwinPeaks.location + "'s House Show",
     address: Faker::Address.street_address,
     start_time: Faker::Time.between_dates(from: Date.today, to: Date.today + 14, period: :night, format: :short),
-    intereted_count: (0..20).to_a.sample
+    interested_count: (0..20).to_a.sample
     )
 end
 

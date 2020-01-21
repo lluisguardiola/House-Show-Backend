@@ -863,3 +863,324 @@ Processing by EventsController#index as HTML
 Completed 200 OK in 157ms (Views: 130.3ms | ActiveRecord: 23.2ms | Allocations: 36648)
 
 
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mNeighborhood Load (0.9ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods"[0m
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPerformer Load (0.7ms)[0m  [1m[34mSELECT "performers".* FROM "performers"[0m
+  [1m[36mShow Load (0.6ms)[0m  [1m[34mSELECT "shows".* FROM "shows"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Create (0.7ms)[0m  [1m[32mINSERT INTO "neighborhoods" ("name", "city", "county", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Lake View"], ["city", "Chicago"], ["county", "Cook County"], ["created_at", "2020-01-21 17:10:18.303576"], ["updated_at", "2020-01-21 17:10:18.303576"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mNeighborhood Load (0.9ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Destroy (1.8ms)[0m  [1m[31mDELETE FROM "neighborhoods" WHERE "neighborhoods"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPerformer Load (0.9ms)[0m  [1m[34mSELECT "performers".* FROM "performers"[0m
+  [1m[36mShow Load (0.7ms)[0m  [1m[34mSELECT "shows".* FROM "shows"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Create (0.6ms)[0m  [1m[32mINSERT INTO "neighborhoods" ("name", "city", "county", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Lake View"], ["city", "Chicago"], ["county", "Cook County"], ["created_at", "2020-01-21 17:11:15.233118"], ["updated_at", "2020-01-21 17:11:15.233118"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Load (0.3ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" WHERE "neighborhoods"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Create (1.0ms)[0m  [1m[32mINSERT INTO "events" ("neighborhood_id", "name", "address", "start_time", "interested_count", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["neighborhood_id", 2], ["name", "Easter Park's House Show"], ["address", "6813 Borer Groves"], ["start_time", "29 Jan 21:05"], ["interested_count", 15], ["created_at", "2020-01-21 17:11:15.434172"], ["updated_at", "2020-01-21 17:11:15.434172"]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Load (0.3ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" WHERE "neighborhoods"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.6ms)[0m  [1m[32mINSERT INTO "events" ("neighborhood_id", "name", "address", "start_time", "interested_count", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["neighborhood_id", 2], ["name", "Glastonbury Grove's House Show"], ["address", "491 Yost Ranch"], ["start_time", "23 Jan 23:40"], ["interested_count", 7], ["created_at", "2020-01-21 17:11:15.447956"], ["updated_at", "2020-01-21 17:11:15.447956"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Load (0.3ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" WHERE "neighborhoods"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("neighborhood_id", "name", "address", "start_time", "interested_count", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["neighborhood_id", 2], ["name", "Timber Falls Motel's House Show"], ["address", "22200 Austin Station"], ["start_time", "26 Jan 18:06"], ["interested_count", 12], ["created_at", "2020-01-21 17:11:15.454864"], ["updated_at", "2020-01-21 17:11:15.454864"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Load (0.3ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" WHERE "neighborhoods"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("neighborhood_id", "name", "address", "start_time", "interested_count", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["neighborhood_id", 2], ["name", "Wind River's House Show"], ["address", "80298 Jacobson Mall"], ["start_time", "26 Jan 22:34"], ["interested_count", 20], ["created_at", "2020-01-21 17:11:15.462303"], ["updated_at", "2020-01-21 17:11:15.462303"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Load (0.3ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" WHERE "neighborhoods"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("neighborhood_id", "name", "address", "start_time", "interested_count", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["neighborhood_id", 2], ["name", "Railroad Car's House Show"], ["address", "5665 Fae Pines"], ["start_time", "24 Jan 18:03"], ["interested_count", 8], ["created_at", "2020-01-21 17:11:15.469656"], ["updated_at", "2020-01-21 17:11:15.469656"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Create (0.4ms)[0m  [1m[32mINSERT INTO "neighborhoods" ("name", "city", "county", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Lincoln Park"], ["city", "Chicago"], ["county", "Cook County"], ["created_at", "2020-01-21 17:11:15.473287"], ["updated_at", "2020-01-21 17:11:15.473287"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Load (0.3ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" WHERE "neighborhoods"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("neighborhood_id", "name", "address", "start_time", "interested_count", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["neighborhood_id", 3], ["name", "Double-R Diner's House Show"], ["address", "1580 Mariette Rapids"], ["start_time", "25 Jan 19:59"], ["interested_count", 20], ["created_at", "2020-01-21 17:11:15.481438"], ["updated_at", "2020-01-21 17:11:15.481438"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Load (0.2ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" WHERE "neighborhoods"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("neighborhood_id", "name", "address", "start_time", "interested_count", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["neighborhood_id", 3], ["name", "Haps Diner's House Show"], ["address", "649 Hans Mountains"], ["start_time", "01 Feb 18:13"], ["interested_count", 13], ["created_at", "2020-01-21 17:11:15.487893"], ["updated_at", "2020-01-21 17:11:15.487893"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Load (0.2ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" WHERE "neighborhoods"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("neighborhood_id", "name", "address", "start_time", "interested_count", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["neighborhood_id", 3], ["name", "Black Lodge's House Show"], ["address", "7038 Clair Burgs"], ["start_time", "03 Feb 20:21"], ["interested_count", 17], ["created_at", "2020-01-21 17:11:15.494635"], ["updated_at", "2020-01-21 17:11:15.494635"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Load (0.2ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" WHERE "neighborhoods"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("neighborhood_id", "name", "address", "start_time", "interested_count", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["neighborhood_id", 3], ["name", "Bookhouse's House Show"], ["address", "77337 Ezra Dale"], ["start_time", "04 Feb 20:48"], ["interested_count", 4], ["created_at", "2020-01-21 17:11:15.502306"], ["updated_at", "2020-01-21 17:11:15.502306"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Load (0.2ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" WHERE "neighborhoods"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("neighborhood_id", "name", "address", "start_time", "interested_count", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["neighborhood_id", 3], ["name", "Fat Trout Trailer Park's House Show"], ["address", "39879 Edmond Plaza"], ["start_time", "26 Jan 21:59"], ["interested_count", 1], ["created_at", "2020-01-21 17:11:15.509545"], ["updated_at", "2020-01-21 17:11:15.509545"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Create (0.4ms)[0m  [1m[32mINSERT INTO "neighborhoods" ("name", "city", "county", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Andersonville"], ["city", "Chicago"], ["county", "Cook County"], ["created_at", "2020-01-21 17:11:15.512950"], ["updated_at", "2020-01-21 17:11:15.512950"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Load (0.2ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" WHERE "neighborhoods"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("neighborhood_id", "name", "address", "start_time", "interested_count", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["neighborhood_id", 4], ["name", "Town Hall's House Show"], ["address", "25941 Grady Divide"], ["start_time", "23 Jan 20:07"], ["interested_count", 16], ["created_at", "2020-01-21 17:11:15.520395"], ["updated_at", "2020-01-21 17:11:15.520395"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Load (0.2ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" WHERE "neighborhoods"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("neighborhood_id", "name", "address", "start_time", "interested_count", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["neighborhood_id", 4], ["name", "White Lodge's House Show"], ["address", "565 Merilyn Plains"], ["start_time", "02 Feb 21:41"], ["interested_count", 6], ["created_at", "2020-01-21 17:11:15.527214"], ["updated_at", "2020-01-21 17:11:15.527214"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Load (0.2ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" WHERE "neighborhoods"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("neighborhood_id", "name", "address", "start_time", "interested_count", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["neighborhood_id", 4], ["name", "Bookhouse's House Show"], ["address", "31706 Hammes Port"], ["start_time", "31 Jan 18:39"], ["interested_count", 12], ["created_at", "2020-01-21 17:11:15.534009"], ["updated_at", "2020-01-21 17:11:15.534009"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Load (0.2ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" WHERE "neighborhoods"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("neighborhood_id", "name", "address", "start_time", "interested_count", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["neighborhood_id", 4], ["name", "Horne's Department Store's House Show"], ["address", "623 Rashad Plain"], ["start_time", "01 Feb 18:14"], ["interested_count", 4], ["created_at", "2020-01-21 17:11:15.540878"], ["updated_at", "2020-01-21 17:11:15.540878"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Load (0.2ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" WHERE "neighborhoods"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("neighborhood_id", "name", "address", "start_time", "interested_count", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["neighborhood_id", 4], ["name", "Ghostwood National Forest's House Show"], ["address", "3771 Koss Station"], ["start_time", "30 Jan 23:49"], ["interested_count", 19], ["created_at", "2020-01-21 17:11:15.547906"], ["updated_at", "2020-01-21 17:11:15.547906"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Create (0.3ms)[0m  [1m[32mINSERT INTO "neighborhoods" ("name", "city", "county", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Logan Square"], ["city", "Chicago"], ["county", "Cook County"], ["created_at", "2020-01-21 17:11:15.550982"], ["updated_at", "2020-01-21 17:11:15.550982"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Load (0.2ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" WHERE "neighborhoods"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("neighborhood_id", "name", "address", "start_time", "interested_count", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["neighborhood_id", 5], ["name", "Deer Meadow's House Show"], ["address", "5078 Stracke Throughway"], ["start_time", "30 Jan 23:20"], ["interested_count", 15], ["created_at", "2020-01-21 17:11:15.558403"], ["updated_at", "2020-01-21 17:11:15.558403"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Load (0.2ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" WHERE "neighborhoods"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("neighborhood_id", "name", "address", "start_time", "interested_count", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["neighborhood_id", 5], ["name", "White Lodge's House Show"], ["address", "145 Elbert Mission"], ["start_time", "02 Feb 20:16"], ["interested_count", 18], ["created_at", "2020-01-21 17:11:15.565982"], ["updated_at", "2020-01-21 17:11:15.565982"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Load (0.2ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" WHERE "neighborhoods"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("neighborhood_id", "name", "address", "start_time", "interested_count", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["neighborhood_id", 5], ["name", "Packard Sawmill's House Show"], ["address", "511 Desmond Shoals"], ["start_time", "27 Jan 21:56"], ["interested_count", 8], ["created_at", "2020-01-21 17:11:15.572944"], ["updated_at", "2020-01-21 17:11:15.572944"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Load (0.2ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" WHERE "neighborhoods"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("neighborhood_id", "name", "address", "start_time", "interested_count", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["neighborhood_id", 5], ["name", "Timber Falls Motel's House Show"], ["address", "409 Mills Drive"], ["start_time", "04 Feb 20:26"], ["interested_count", 7], ["created_at", "2020-01-21 17:11:15.579772"], ["updated_at", "2020-01-21 17:11:15.579772"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNeighborhood Load (0.2ms)[0m  [1m[34mSELECT "neighborhoods".* FROM "neighborhoods" WHERE "neighborhoods"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("neighborhood_id", "name", "address", "start_time", "interested_count", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["neighborhood_id", 5], ["name", "Fat Trout Trailer Park's House Show"], ["address", "1851 Omer Bridge"], ["start_time", "31 Jan 19:54"], ["interested_count", 8], ["created_at", "2020-01-21 17:11:15.586432"], ["updated_at", "2020-01-21 17:11:15.586432"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerformer Create (0.6ms)[0m  [1m[32mINSERT INTO "performers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Epik High"], ["created_at", "2020-01-21 17:11:15.597347"], ["updated_at", "2020-01-21 17:11:15.597347"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.3ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.2ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShow Create (1.0ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 16], ["performer_id", 1], ["created_at", "2020-01-21 17:11:15.622918"], ["updated_at", "2020-01-21 17:11:15.622918"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.2ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShow Create (0.6ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 7], ["performer_id", 1], ["created_at", "2020-01-21 17:11:15.632143"], ["updated_at", "2020-01-21 17:11:15.632143"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerformer Create (0.3ms)[0m  [1m[32mINSERT INTO "performers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Paran"], ["created_at", "2020-01-21 17:11:15.635738"], ["updated_at", "2020-01-21 17:11:15.635738"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.3ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShow Create (0.6ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 16], ["performer_id", 2], ["created_at", "2020-01-21 17:11:15.645068"], ["updated_at", "2020-01-21 17:11:15.645068"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.2ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShow Create (0.6ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 6], ["performer_id", 2], ["created_at", "2020-01-21 17:11:15.653765"], ["updated_at", "2020-01-21 17:11:15.653765"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.2ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShow Create (0.6ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 8], ["performer_id", 2], ["created_at", "2020-01-21 17:11:15.662703"], ["updated_at", "2020-01-21 17:11:15.662703"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerformer Create (0.3ms)[0m  [1m[32mINSERT INTO "performers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Black Beat"], ["created_at", "2020-01-21 17:11:15.666285"], ["updated_at", "2020-01-21 17:11:15.666285"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.2ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mShow Create (0.6ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 16], ["performer_id", 3], ["created_at", "2020-01-21 17:11:15.674950"], ["updated_at", "2020-01-21 17:11:15.674950"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.1ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mShow Create (0.4ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 11], ["performer_id", 3], ["created_at", "2020-01-21 17:11:15.683608"], ["updated_at", "2020-01-21 17:11:15.683608"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.2ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mShow Create (0.5ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 1], ["performer_id", 3], ["created_at", "2020-01-21 17:11:15.691909"], ["updated_at", "2020-01-21 17:11:15.691909"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerformer Create (0.3ms)[0m  [1m[32mINSERT INTO "performers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Supernova"], ["created_at", "2020-01-21 17:11:15.695411"], ["updated_at", "2020-01-21 17:11:15.695411"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.1ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShow Create (0.4ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 5], ["performer_id", 4], ["created_at", "2020-01-21 17:11:15.704178"], ["updated_at", "2020-01-21 17:11:15.704178"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.2ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShow Create (0.4ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 3], ["performer_id", 4], ["created_at", "2020-01-21 17:11:15.712427"], ["updated_at", "2020-01-21 17:11:15.712427"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.2ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShow Create (0.4ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 5], ["performer_id", 4], ["created_at", "2020-01-21 17:11:15.720177"], ["updated_at", "2020-01-21 17:11:15.720177"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerformer Create (0.4ms)[0m  [1m[32mINSERT INTO "performers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Industrial Transportation"], ["created_at", "2020-01-21 17:11:15.723864"], ["updated_at", "2020-01-21 17:11:15.723864"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.1ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mShow Create (0.4ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 5], ["performer_id", 5], ["created_at", "2020-01-21 17:11:15.732787"], ["updated_at", "2020-01-21 17:11:15.732787"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.2ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mShow Create (0.5ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 3], ["performer_id", 5], ["created_at", "2020-01-21 17:11:15.763362"], ["updated_at", "2020-01-21 17:11:15.763362"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.2ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mShow Create (0.5ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 7], ["performer_id", 5], ["created_at", "2020-01-21 17:11:15.770920"], ["updated_at", "2020-01-21 17:11:15.770920"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerformer Create (0.3ms)[0m  [1m[32mINSERT INTO "performers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Health Care Equipment & Services"], ["created_at", "2020-01-21 17:11:15.774349"], ["updated_at", "2020-01-21 17:11:15.774349"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.2ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShow Create (0.4ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 2], ["performer_id", 6], ["created_at", "2020-01-21 17:11:15.782996"], ["updated_at", "2020-01-21 17:11:15.782996"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.2ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShow Create (0.5ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 6], ["performer_id", 6], ["created_at", "2020-01-21 17:11:15.790382"], ["updated_at", "2020-01-21 17:11:15.790382"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.1ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShow Create (0.4ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 13], ["performer_id", 6], ["created_at", "2020-01-21 17:11:15.797830"], ["updated_at", "2020-01-21 17:11:15.797830"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerformer Create (0.3ms)[0m  [1m[32mINSERT INTO "performers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Equity Investment Instruments"], ["created_at", "2020-01-21 17:11:15.801009"], ["updated_at", "2020-01-21 17:11:15.801009"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.2ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShow Create (0.5ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 1], ["performer_id", 7], ["created_at", "2020-01-21 17:11:15.809698"], ["updated_at", "2020-01-21 17:11:15.809698"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.1ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShow Create (0.4ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 9], ["performer_id", 7], ["created_at", "2020-01-21 17:11:15.817259"], ["updated_at", "2020-01-21 17:11:15.817259"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.1ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShow Create (0.3ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 14], ["performer_id", 7], ["created_at", "2020-01-21 17:11:15.824532"], ["updated_at", "2020-01-21 17:11:15.824532"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerformer Create (0.3ms)[0m  [1m[32mINSERT INTO "performers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Financial Services"], ["created_at", "2020-01-21 17:11:15.827475"], ["updated_at", "2020-01-21 17:11:15.827475"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.2ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mShow Create (0.4ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 5], ["performer_id", 8], ["created_at", "2020-01-21 17:11:15.835718"], ["updated_at", "2020-01-21 17:11:15.835718"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.2ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mShow Create (0.4ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 14], ["performer_id", 8], ["created_at", "2020-01-21 17:11:15.843656"], ["updated_at", "2020-01-21 17:11:15.843656"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.2ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mShow Create (0.4ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 13], ["performer_id", 8], ["created_at", "2020-01-21 17:11:15.851128"], ["updated_at", "2020-01-21 17:11:15.851128"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerformer Create (0.3ms)[0m  [1m[32mINSERT INTO "performers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Sun"], ["created_at", "2020-01-21 17:11:15.853902"], ["updated_at", "2020-01-21 17:11:15.853902"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.2ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShow Create (0.4ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 10], ["performer_id", 9], ["created_at", "2020-01-21 17:11:15.863084"], ["updated_at", "2020-01-21 17:11:15.863084"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.2ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShow Create (0.4ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 16], ["performer_id", 9], ["created_at", "2020-01-21 17:11:15.870689"], ["updated_at", "2020-01-21 17:11:15.870689"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.1ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShow Create (0.5ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 17], ["performer_id", 9], ["created_at", "2020-01-21 17:11:15.877548"], ["updated_at", "2020-01-21 17:11:15.877548"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerformer Create (0.3ms)[0m  [1m[32mINSERT INTO "performers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Luyten 726-8A"], ["created_at", "2020-01-21 17:11:15.880850"], ["updated_at", "2020-01-21 17:11:15.880850"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.1ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mShow Create (0.4ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 7], ["performer_id", 10], ["created_at", "2020-01-21 17:11:15.888888"], ["updated_at", "2020-01-21 17:11:15.888888"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.2ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.2ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mShow Create (0.4ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 11], ["performer_id", 10], ["created_at", "2020-01-21 17:11:15.902120"], ["updated_at", "2020-01-21 17:11:15.902120"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerformer Create (0.4ms)[0m  [1m[32mINSERT INTO "performers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Luyten 726-8B"], ["created_at", "2020-01-21 17:11:15.905336"], ["updated_at", "2020-01-21 17:11:15.905336"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.2ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mShow Create (0.6ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 2], ["performer_id", 11], ["created_at", "2020-01-21 17:11:15.914232"], ["updated_at", "2020-01-21 17:11:15.914232"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.2ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mShow Create (0.6ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 18], ["performer_id", 11], ["created_at", "2020-01-21 17:11:15.924084"], ["updated_at", "2020-01-21 17:11:15.924084"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.1ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mShow Create (0.4ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 8], ["performer_id", 11], ["created_at", "2020-01-21 17:11:15.932222"], ["updated_at", "2020-01-21 17:11:15.932222"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerformer Create (0.3ms)[0m  [1m[32mINSERT INTO "performers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Sirius A"], ["created_at", "2020-01-21 17:11:15.935035"], ["updated_at", "2020-01-21 17:11:15.935035"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.2ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mShow Create (0.5ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 13], ["performer_id", 12], ["created_at", "2020-01-21 17:11:15.944101"], ["updated_at", "2020-01-21 17:11:15.944101"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.2ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mShow Create (0.4ms)[0m  [1m[32mINSERT INTO "shows" ("event_id", "performer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 12], ["performer_id", 12], ["created_at", "2020-01-21 17:11:15.951864"], ["updated_at", "2020-01-21 17:11:15.951864"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mPerformer Load (0.2ms)[0m  [1m[34mSELECT "performers".* FROM "performers" WHERE "performers"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
