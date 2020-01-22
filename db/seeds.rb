@@ -49,20 +49,20 @@ end
 4.times do 
     performer = Performer.create(name: Faker::Kpop.ii_groups)
     3.times do
-        Show.create(event_id: (0..19).to_a.sample, performer_id: performer.id)
+        Show.create(event_id: (1..20).to_a.sample, performer_id: performer.id, name: Faker::Food.sushi)
     end
 end
 
 4.times do 
     performer = Performer.create(name: Faker::IndustrySegments.sector)
     3.times do
-        Show.create(event_id: (0..19).to_a.sample, performer_id: performer.id)
+        Show.create(event_id: (1..20).to_a.sample, performer_id: performer.id, name: Faker::Food.sushi)
     end
 end
 
 4.times do 
     performer = Performer.create(name: Faker::Space.star)
     3.times do
-        Show.create(event_id: (0..19).to_a.sample, performer_id: performer.id)
+        Show.create(event_id: (1..20).to_a.sample, performer_id: performer.id, name: Faker::Food.sushi)
     end
 end
