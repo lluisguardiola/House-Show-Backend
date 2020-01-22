@@ -3,6 +3,7 @@ class CreateShows < ActiveRecord::Migration[6.0]
     create_table :shows do |t|
       t.references :event, null: false, foreign_key: true
       t.references :performer, null: false, foreign_key: true
+      t.string :name
 
       t.timestamps
     end

@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_01_20_053621) do
     t.string "name"
     t.string "address"
     t.string "start_time"
-    t.integer "intereted_count"
+    t.integer "interested_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["neighborhood_id"], name: "index_events_on_neighborhood_id"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2020_01_20_053621) do
   create_table "shows", force: :cascade do |t|
     t.bigint "event_id", null: false
     t.bigint "performer_id", null: false
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_shows_on_event_id"
