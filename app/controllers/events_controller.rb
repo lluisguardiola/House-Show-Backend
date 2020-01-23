@@ -17,8 +17,6 @@ class EventsController < ApplicationController
     def update
         event = Event.find_by(id: params[:id][-1])
         event.update(interested_count: params[:interested_count])
-        p params
-        p event
         render json: event
     end
 end
