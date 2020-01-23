@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
 	def index
-		events = Event.all
+		events = Event.all.order(interested_count: :desc)
         render json: events, include: :neighborhood
 	end
 
