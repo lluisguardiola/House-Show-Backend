@@ -13,4 +13,12 @@ class EventsController < ApplicationController
         event = Event.create(name: params[:name], address: params[:address], start_time: params[:start_time], neighborhood_id: params[:neighborhood_id] , interested_count: params[:interested_count])
         render json: event, include: :neighborhood
     end
+
+    def update
+        event = Event.find_by(id: params[:id][-1])
+        event.update(interested_count: params[:interested_count])
+        p params
+        p event
+        render json: event
+    end
 end
